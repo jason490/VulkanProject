@@ -164,7 +164,7 @@ VkExtent2D AvantGardeRender::chooseSwapExtent(const VkSurfaceCapabilitiesKHR& ca
 }
 
 void AvantGardeRender::cleanupSwapChain() {
-    for ( auto framebuffer : swapChainFramebuffers) {
+    for (auto framebuffer : swapChainFramebuffers) {
         vkDestroyFramebuffer(device, framebuffer, nullptr);
     }
 

@@ -44,6 +44,6 @@ lib
 # MacOS generated files
 *.DS_Store
 
-# CMake generated files
+# CMake generated files & env files
 build
 .env.cmake
