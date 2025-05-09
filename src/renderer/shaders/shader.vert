@@ -6,13 +6,17 @@ layout(binding = 0) uniform UniformBufferObject {
     mat4 proj;
 } ubo;
 
+layout(std140, binding = 1) readonly buffer storageBuffer {
+    mat4 model[];
+} ObjectData;
+
 layout(location = 0) in vec2 inPosition;
 layout(location = 1) in vec3 inColor;
 
 layout(location = 0) out vec3 fragColor;
 
 void main() {
-    gl_Position = ubo.proj * ubo.view * ubo.model * vec4(inPosition, 0.0, 1.0);
+    gl_Position = ubo.proj * ubo.view * ObjectData.model[gl_InstanceIndex] * vec4(inPosition, 0.0, 1.0);
     fragColor = inColor;
 }
 
